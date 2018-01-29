@@ -6,10 +6,9 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
+import android.view.View;
 import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         final ImageButton traffic = (ImageButton) findViewById(R.id.trafficjam);
         final ImageButton accident = (ImageButton) findViewById(R.id.accident);
         final ImageButton closedroad = (ImageButton) findViewById(R.id.closedroad);
+        final ImageButton globe = (ImageButton) findViewById(R.id.globe);
 
         traffic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +57,13 @@ public class MainActivity extends AppCompatActivity {
                 traffic.setImageResource(R.drawable.ic_traffic);
                 accident.setImageResource(R.drawable.ic_car_collision);
                 closedroad.setImageResource(R.drawable.ic_no_stopping_red);
+            }
+        });
+
+        globe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, MapsActivity.class));
             }
         });
     }

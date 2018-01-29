@@ -37,16 +37,17 @@
         android:layout_above="@+id/editText2"
         android:layout_alignLeft="@+id/textView2"
         android:layout_alignStart="@+id/textView2"
-        android:layout_marginBottom="21dp"
+        android:layout_marginBottom="8dp"
         android:text="Description (facultative) :" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView6"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="80dp"
+        android:layout_alignStart="@+id/textView6"
+        android:layout_marginBottom="62dp"
         android:text="Envoyer" />
 
     <EditText
@@ -55,10 +56,9 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/button"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="21dp"
+        android:layout_marginBottom="9dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Description" />
+        android:inputType="textPersonName" />
 
     <ImageButton
         android:id="@+id/trafficjam"
@@ -103,8 +103,8 @@
         android:id="@+id/globe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView6"
-        android:layout_alignStart="@+id/textView6"
+        android:layout_alignEnd="@+id/button"
+        android:layout_alignRight="@+id/button"
         android:layout_alignTop="@+id/textView3"
         app:srcCompat="@drawable/ic_earth_globe_with_continents_maps" />
 
