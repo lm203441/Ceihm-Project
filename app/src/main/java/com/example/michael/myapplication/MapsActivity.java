@@ -1,5 +1,6 @@
 package com.example.michael.myapplication;
 
+import android.content.Context;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -17,6 +18,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private LocationManager locationManager;
     private static final long MIN_TIME = 400;
     private static final float MIN_DISTANCE = 1000;
+//    final ImageButton globe = (ImageButton) findViewById(R.id.globe);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,13 +50,35 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //        mMap.setBuildingsEnabled(true);
 //        mMap.getUiSettings().setZoomControlsEnabled(true);
         // Add a marker in Sydney and move the camera7
+
+
         LatLng sydney = new LatLng(43.615513, 7.071819);
 //        LatLng sydney = new LatLng(mMap.getMyLocation().getLatitude(), mMap.getMyLocation().getLongitude());
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Position de l'incident"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+
+            @Override
+            public void onMapClick(LatLng point) {
+                // TODO Auto-generated method stub
+//                lstLatLngs.add(point);
+                mMap.clear();
+                mMap.addMarker(new MarkerOptions().position(point));
+//                globe.setImageResource(R.drawable.ic_no_stopping);
+            }
+        });
     }
 
 
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+    }
+
+    public Context getActivity() {
+        return this.getActivity();
+    }
 }
 
 //    private void setUpMapIfNeeded() {

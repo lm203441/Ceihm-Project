@@ -15,7 +15,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="54dp"
-        android:text="Signaler un incident" />
+        android:text="Signaler un incident"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
         android:id="@+id/textView2"
@@ -67,6 +68,8 @@
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
+        android:scaleX="2"
+        android:scaleY="2"
         app:srcCompat="@drawable/ic_traffic" />
 
     <ImageButton
@@ -76,6 +79,8 @@
         android:layout_alignBottom="@+id/trafficjam"
         android:layout_alignEnd="@+id/textView2"
         android:layout_alignRight="@+id/textView2"
+        android:scaleX="2"
+        android:scaleY="2"
         app:srcCompat="@drawable/ic_car_collision" />
 
     <ImageButton
@@ -87,6 +92,8 @@
         android:layout_marginStart="17dp"
         android:layout_toEndOf="@+id/textView"
         android:layout_toRightOf="@+id/textView"
+        android:scaleX="2"
+        android:scaleY="2"
         app:srcCompat="@drawable/ic_no_stopping" />
 
     <TextView
@@ -106,6 +113,8 @@
         android:layout_alignEnd="@+id/button"
         android:layout_alignRight="@+id/button"
         android:layout_alignTop="@+id/textView3"
+        android:scaleX="2"
+        android:scaleY="2"
         app:srcCompat="@drawable/ic_earth_globe_with_continents_maps" />
 
     <TextView
@@ -115,6 +124,7 @@
         android:layout_alignEnd="@+id/textView3"
         android:layout_alignRight="@+id/textView3"
         android:layout_below="@+id/accident"
+        android:layout_marginTop="20dp"
         android:text="Accident" />
 
     <TextView
