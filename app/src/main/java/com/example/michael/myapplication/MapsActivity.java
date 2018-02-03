@@ -4,6 +4,7 @@ import android.content.Context;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -16,9 +17,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private LocationManager locationManager;
+    private LatLng coordonnees = new LatLng(43.615513, 7.071819);
     private static final long MIN_TIME = 400;
     private static final float MIN_DISTANCE = 1000;
-//    final ImageButton globe = (ImageButton) findViewById(R.id.globe);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,10 +53,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Add a marker in Sydney and move the camera7
 
 
-        LatLng sydney = new LatLng(43.615513, 7.071819);
+//        LatLng sophia = new LatLng(43.615513, 7.071819);
+        float zoomLevel = 16.0f; //This goes up to 21
 //        LatLng sydney = new LatLng(mMap.getMyLocation().getLatitude(), mMap.getMyLocation().getLongitude());
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Position de l'incident"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        mMap.addMarker(new MarkerOptions().position(coordonnees).title("Position de l'incident"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(coordonnees, zoomLevel));
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
 
             @Override
@@ -63,7 +65,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 // TODO Auto-generated method stub
 //                lstLatLngs.add(point);
                 mMap.clear();
-                mMap.addMarker(new MarkerOptions().position(point));
+                MarkerOptions position = new MarkerOptions().position(point);
+                coordonnees = position.getPosition();
+                mMap.addMarker(position);
+                new MarkerOptions().getPosition();
 //                globe.setImageResource(R.drawable.ic_no_stopping);
             }
         });
@@ -73,6 +78,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onBackPressed()
     {
+        Toast.makeText(getApplicationContext(),"Incident localisé",Toast.LENGTH_SHORT).show();
         super.onBackPressed();
     }
 

@@ -9,28 +9,32 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="194dp"
-        android:text="Confirmer l'envoi ?" />
+        android:text="Confirmer l'envoi ?"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/oui"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView9"
         android:layout_alignStart="@+id/textView9"
         android:layout_below="@+id/textView9"
-        android:layout_marginLeft="70dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="42dp"
+        android:layout_marginLeft="88dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="43dp"
         android:text="Oui" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/non"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/oui"
+        android:layout_alignBottom="@+id/oui"
         android:layout_alignEnd="@+id/textView9"
         android:layout_alignRight="@+id/textView9"
-        android:layout_alignTop="@+id/button2"
-        android:layout_marginEnd="67dp"
-        android:layout_marginRight="67dp"
+        android:layout_marginEnd="89dp"
+        android:layout_marginRight="89dp"
         android:text="Non" />
 </RelativeLayout>
