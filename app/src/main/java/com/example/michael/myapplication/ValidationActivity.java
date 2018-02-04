@@ -33,9 +33,7 @@ public class ValidationActivity extends AppCompatActivity {
         non.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                setContentView(R.layout.activity_main);
                 onBackPressed();
-//                startActivity(new Intent(ValidationActivity.this, MainActivity.class));
             }
         });
     }

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -29,8 +31,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        final Button validmap = (Button) findViewById(R.id.validmap);
 
+        validmap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"Incident localisé",Toast.LENGTH_SHORT).show();
+                onBackPressed();
+            }}
+        );
     }
+
 
 
     /**
@@ -81,6 +92,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Toast.makeText(getApplicationContext(),"Incident localisé",Toast.LENGTH_SHORT).show();
         super.onBackPressed();
     }
+
+
 
     public Context getActivity() {
         return this.getActivity();

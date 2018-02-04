@@ -6,8 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    private boolean incident = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,33 +36,19 @@ public class MainActivity extends AppCompatActivity {
         envoyer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ValidationActivity.class));
-//                setContentView(R.layout.validation);
-//                final Button oui = (Button) findViewById(R.id.oui);
-//                final Button non = (Button) findViewById(R.id.non);
-//
-//                oui.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Toast.makeText(getApplicationContext(),"Incident envoyé",Toast.LENGTH_SHORT).show();
-//                        startActivity(new Intent(MainActivity.this, MainActivity.class));
-//                    }
-//                });
-//
-//                non.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                         setContentView(R.layout.activity_main);
-////                        startActivity(new Intent(MainActivity.this, MainActivity.class));
-//                    }
-//                });
-
+                if(incident){
+                    startActivity(new Intent(MainActivity.this, ValidationActivity.class));
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"Veuillez choisir un type d'incident",Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
         traffic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                incident = true;
                 traffic.setImageResource(R.drawable.ic_traffic_red);
                 accident.setImageResource(R.drawable.ic_car_collision);
                 closedroad.setImageResource(R.drawable.ic_no_stopping);
@@ -69,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         accident.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                incident = true;
                 traffic.setImageResource(R.drawable.ic_traffic);
                 accident.setImageResource(R.drawable.ic_car_collision_red);
                 closedroad.setImageResource(R.drawable.ic_no_stopping);
@@ -78,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         closedroad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                incident = true;
                 traffic.setImageResource(R.drawable.ic_traffic);
                 accident.setImageResource(R.drawable.ic_car_collision);
                 closedroad.setImageResource(R.drawable.ic_no_stopping_red);
