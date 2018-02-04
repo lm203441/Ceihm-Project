@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,25 +33,26 @@ public class MainActivity extends AppCompatActivity {
         envoyer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.validation);
-                final Button oui = (Button) findViewById(R.id.oui);
-                final Button non = (Button) findViewById(R.id.non);
-
-                oui.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(getApplicationContext(),"Incident envoyé",Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(MainActivity.this, MainActivity.class));
-                    }
-                });
-
-                non.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        startActivity(new Intent(MainActivity.this, MainActivity.class));
-                    }
-                });
+                startActivity(new Intent(MainActivity.this, ValidationActivity.class));
+//                setContentView(R.layout.validation);
+//                final Button oui = (Button) findViewById(R.id.oui);
+//                final Button non = (Button) findViewById(R.id.non);
+//
+//                oui.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        Toast.makeText(getApplicationContext(),"Incident envoyé",Toast.LENGTH_SHORT).show();
+//                        startActivity(new Intent(MainActivity.this, MainActivity.class));
+//                    }
+//                });
+//
+//                non.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                         setContentView(R.layout.activity_main);
+////                        startActivity(new Intent(MainActivity.this, MainActivity.class));
+//                    }
+//                });
 
             }
         });
@@ -90,6 +90,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, MapsActivity.class));
             }
         });
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        //this is only needed if you have specific things
+        //that you want to do when the user presses the back button.
+        /* your specific things...*/
+        super.onBackPressed();
     }
 
 //    @Override
